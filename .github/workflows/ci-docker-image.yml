@@ -27,6 +27,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      # passing the secret to a nested reusable workflow
+        pass-secret-to-workflow:
+          uses: ./.github/workflows/ci-docker-image.yml
+          with:
+            DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+            DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+    
       - name: Debug Secrets
         run: |
           echo "DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}"
