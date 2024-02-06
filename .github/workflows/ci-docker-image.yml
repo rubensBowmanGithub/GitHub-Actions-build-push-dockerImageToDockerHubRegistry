@@ -32,6 +32,10 @@ jobs:
           echo "DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}"
           echo "DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}"
 
+      - name: Debug variable
+        run: |
+          echo "DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}"
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
